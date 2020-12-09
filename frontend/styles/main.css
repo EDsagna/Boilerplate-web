@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('./variables.css');
+
+* {
+    font-family: 'Raleway', sans-serif;
+    font-size: var(--default-font-size);
+    font-weight: normal;
+    color: #222;
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    min-height: 100vh;
+    background: #ddd;
+}
+body {
+    margin-bottom: calc(100px + 2 * var(--space-big));
+}
+
+.header {
+    padding: var(--space-medium) var(--space-medium) 10px var(--space-medium);
+    border-bottom: 1px solid #555;
+    margin-bottom: 25px;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.nav ul {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+}
+.nav ul li {
+    list-style: none;
+    padding: 12px 25px;
+    color: var(--secondary);
+    border-radius: var(--radius-medium);
+    transition: all 0.3s ease;
+}
+
+.nav ul li:hover {
+    color: var(--primary);
+    cursor: pointer;
+    background:rgba(0, 0, 0, .1);
+    transition: all 0.3s ease;
+}
+
+.h1 {
+    font-size: 2em;
+}
+.h2 {
+    font-size: 1.5em;
+}
+.h3 {
+    font-size: 1.3em;
+}
+
+
+.footer {
+    background: var(--darker);
+    width: calc(100% - 2 * var(--space-big));
+    padding: var(--space-big);
+    color: var(--lighter);
+    border-top: 5px solid var(--secondary);
+    position: fixed;
+    bottom: 0;
+}
+
+
+/*********************************************************************
+                    Surcharge des styles des balises
+*********************************************************************/
+
+.space-small {
+    padding: var(--space-small);
+}
+.space-medium {
+    padding: var(--space-medium);
+}
+.space-big {
+    padding: var(--space-big);
+}
