@@ -20,7 +20,7 @@ En web, notre bête noire est le temps d'exécution d'une requête (plus récept
 
 C'est pourquoi on aime effectuer ce type de requête de manière asynchrone quand on peut. Un cas particulier mais assez fréquent : le serveur est indisponible. Le timeout par défaut est généralement de 30 secondes. Imaginez que vous demandez un émoji au serveur en synchrone et que vous ne puissiez plus rien faire dans votre navigateur jusqu'à ce qu'il décide au bout de ces 30 secondes que le serveur n'est pas joignable :heart:.
 
-## L'asynchrone a deux un inconvénients :
+## L'asynchrone a deux un inconvénients
 
 - plus on l'utilise, plus cela fabrique de processus (lire un livre à 30 nécessite d'avoir plein de copains et une grande maison (et du gel hydroalcoolique))
 - il faut coordonner tout ce monde ! (commment synthétiser le travail de 30 personnes et qu'il soit compréhensible ?!)
