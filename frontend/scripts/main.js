@@ -5,7 +5,7 @@
  */
 const siteTitle = "My website";
 const menu = {
-    'Accueil': './index.html',
+    'Accueil': './accueil.html',
     'A propos': './about.html',
 }
 
@@ -47,8 +47,35 @@ function displayMenu() {
         domItem.dataset.link = menu[menuItem];              // <li title="Découvrir la page Accueil" data-link="./index.html">Accueil</li>
 
         domItem.onclick = function(ev) {
-            window.location = ev.target.dataset.link;
+            // window.location = ev.target.dataset.link;
+            loadPageContent(ev.target.dataset.link);
         }                                                   // <li title="Découvrir la page Accueil" data-link="./index.html" onclick="..."">Accueil</li>
         document.querySelector('#auto-main-menu ul').appendChild(domItem);
     }
+}
+
+function loadPageContent(pageURL) {
+    /**
+     * Prend un nom de page en entrée,
+     * la télécharge en AJAX (avec fetch ou Axios ?)
+     * extrait le contenu de la balise `body`
+     * affiche ce contenu dans un endroit dédié de notre page html actuellement affichée
+     */
+    pageURL = pageURL.replace('./', '');
+    pageURL = 'pages/' + pageURL;
+
+    const headers = new Headers();
+    headers.append('Cache-Control', 'no-store');
+
+
+    fetch(pageURL, {headers: headers})
+        .then(response => response.text())
+        .then(codeHTML => {
+            // console.log('Réponse AJAX', codeHTML)
+            const domParser = new DOMParser();
+            const htmlDocument = domParser.parseFromString(codeHTML, 'text/html');
+            // console.log('notre variable qui claque', htmlDocument.body.innerHTML);
+            document.getElementById('page-router').innerHTML = htmlDocument.body.innerHTML;
+        })
+
 }
